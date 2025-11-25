@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light+Two&family=Gruppo&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+    body {
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+      gap: 100px;
+      transition: background-color 0.5s;
+    }
+    
+    /* .barva{
+      background-color: crimson;
+    } */
+
+    .kolo {
+      border: 10px solid rgba(240, 130, 167, 0.814);
+      width: 500px;
+      aspect-ratio: 1/1;
+      position: absolute;
+    }
+    
+    h1 {
+      color: transparent;
+      font-size: 50px;
+      font-family: "Gruppo";
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      animation: zmena 10s 5s linear forwards;
+    }
+    
+    button {
+      background-color: transparent;
+      border-color: transparent;
+      color: transparent;
+      width: 150px;
+      height: 90px;
+      font-size: 50px;
+      font-family: "Gruppo";
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      transition: rotate 2s ease;
+      animation: beep 15s 15s linear forwards;
+    }
+
+    .tlacitko:hover{
+      rotate: 3600deg;
+    }
+
+    .rotace {
+      animation: tocky 1s linear infinite forwards,
+        stin 0.5s linear infinite alternate, modify 5s ease forwards;
+    }
+
+    @keyframes beep {
+      100%{
+        color: blueviolet;
+        border-color: darkmagenta;
+      }
+    }
+
+    @keyframes modify {
+      0% {
+        border-radius: 0%;
+      }
+      100% {
+        border: 1px solid transparent;
+        width: 5px;
+        border-radius: 50%;
+      }
+    }
+
+    @keyframes tocky {
+      100% {
+        rotate: 360deg;
+      }
+    }
+
+    @keyframes stin {
+      0% {
+        box-shadow: 0px 0px 200px plum;
+      }
+      50% {
+        box-shadow: 0px 0px 100px violet;
+      }
+      100% {
+        box-shadow: 0px 0px 50px palevioletred;
+      }
+    }
+
+    @keyframes zmena {
+      30% {
+        color: lightpink;
+        text-shadow: 0 0 10px pink, 0 0 20px orangered, 0 0 30px red,
+          0 0 40px magenta, 0 0 50px white;
+        filter: saturate(50%);
+      }
+      50%{
+        color: transparent;
+        text-shadow: transparent;
+      }
+    }
+
+    @keyframes stop {
+      100% {
+        border: 5px solid transparent;
+        background-color: red;
+      }
+    }
+
+   
+  </style>
+  <body>
+    <div class="kolo rotace"></div>
+    <h1>Ready?</h1>
+    <button class="tlacitko">(≧∇≦)</button>
+
+    <script>
+      const nom = document.querySelector(".tlacitko");
+      nom.addEventListener("click", function (){
+        document.body.classList.toggle("barva")
+
+        if (document.body.classList.contains("barva")) {
+
+          const randomColor = `rgb(${Math.floor(Math.random()*256)}, 
+                                   ${Math.floor(Math.random()*256)}, 
+                                   ${Math.floor(Math.random()*256)})`;
+          document.body.style.backgroundColor = randomColor;
+        } 
+        else {
+          document.body.style.backgroundColor = "black";
+        }
+      })
+
+
+    </script>
+  </body>
+</html>
