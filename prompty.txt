@@ -1,1 +1,3 @@
 Sem patří použité prompty
+1) jak vytvorit generaci random barev
+2) jak aby se zmenila pozice tlacitka po kazdem stisknuti
