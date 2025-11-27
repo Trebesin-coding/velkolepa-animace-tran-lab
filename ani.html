@@ -22,7 +22,7 @@
       gap: 100px;
       transition: background-color 0.5s;
     }
-    
+
     /* .barva{
       background-color: crimson;
     } */
@@ -32,8 +32,13 @@
       width: 500px;
       aspect-ratio: 1/1;
       position: absolute;
+      /* transition: pass; */
     }
-    
+
+    /* .kolo:hover{
+
+    } */
+
     h1 {
       color: transparent;
       font-size: 50px;
@@ -41,9 +46,9 @@
       justify-content: center;
       align-items: center;
       position: absolute;
-      animation: zmena 10s 5s linear forwards;
+      animation: zmena 5s 5s linear forwards;
     }
-    
+
     button {
       background-color: transparent;
       border-color: transparent;
@@ -56,10 +61,10 @@
       align-items: center;
       position: absolute;
       transition: rotate 2s ease;
-      animation: beep 15s 15s linear forwards;
+      animation: beep 10s 10s linear forwards;
     }
 
-    .tlacitko:hover{
+    .tlacitko:hover {
       rotate: 3600deg;
     }
 
@@ -69,9 +74,9 @@
     }
 
     @keyframes beep {
-      100%{
-        color: blueviolet;
-        border-color: darkmagenta;
+      100% {
+        color: rgb(171, 160, 181);
+        border-color: rgb(197, 149, 197);
       }
     }
 
@@ -105,13 +110,13 @@
     }
 
     @keyframes zmena {
-      30% {
+      10% {
         color: lightpink;
         text-shadow: 0 0 10px pink, 0 0 20px orangered, 0 0 30px red,
           0 0 40px magenta, 0 0 50px white;
         filter: saturate(50%);
       }
-      50%{
+      30% {
         color: transparent;
         text-shadow: transparent;
       }
@@ -123,8 +128,6 @@
         background-color: red;
       }
     }
-
-   
   </style>
   <body>
     <div class="kolo rotace"></div>
@@ -133,22 +136,29 @@
 
     <script>
       const nom = document.querySelector(".tlacitko");
-      nom.addEventListener("click", function (){
-        document.body.classList.toggle("barva")
+      nom.addEventListener("click", function () {
+        document.body.classList.toggle("barva");
 
         if (document.body.classList.contains("barva")) {
-
-          const randomColor = `rgb(${Math.floor(Math.random()*256)}, 
-                                   ${Math.floor(Math.random()*256)}, 
-                                   ${Math.floor(Math.random()*256)})`;
+          const randomColor = `rgb(${Math.floor(Math.random() * 256)}, 
+                                   ${Math.floor(Math.random() * 256)}, 
+                                   ${Math.floor(Math.random() * 256)})`;
           document.body.style.backgroundColor = randomColor;
-        } 
-        else {
-          document.body.style.backgroundColor = "black";
+        } else {
+          const randomColor2 = `rgb(${Math.floor(Math.random() * 256)}, 
+                                   ${Math.floor(Math.random() * 256)}, 
+                                   ${Math.floor(Math.random() * 256)})`;
+          document.body.style.backgroundColor = randomColor2;
         }
-      })
 
+        const maxX = window.innerWidth - nom.offsetWidth;
+        const maxY = window.innerHeight - nom.offsetHeight;
+        const randomX = Math.floor(Math.random() * maxX);
+        const randomY = Math.floor(Math.random() * maxY);
 
+        nom.style.left = randomX + "px";
+        nom.style.top = randomY + "px";
+      });
     </script>
   </body>
 </html>
